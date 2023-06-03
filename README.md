@@ -1,11 +1,11 @@
 ## Install Kind and creat Cluster
-
+```sh
 [ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.19.0/kind-linux-amd64
 [ $(uname -m) = aarch64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.19.0/kind-linux-arm64
 chmod +x ./kind
 sudo mv ./kind /usr/local/bin/kind
-
 kind create cluster --image kindest/node:v1.22.12
+```
 
 docker ps
 
