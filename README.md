@@ -149,6 +149,23 @@ spec:
     targetPort: 80
 EOF
 ```
+
+```yaml
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-service
+spec:
+  selector:
+    app: my-app
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: NodePort
+EOF
+```
 ## Configmap
   
 ```yaml
@@ -161,7 +178,7 @@ data:
   index.html: |
     <html>
     <body>
-    <h1>Welcome to my custom Nginx page!</h1>
+    <h1>Welcome to VDT Program 2023!</h1>
     </body>
     </html>
 EOF
@@ -177,11 +194,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app: my-app
   template:
     metadata:
       labels:
-        app: nginx
+        app: my-app
     spec:
       containers:
       - name: nginx-container
