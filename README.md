@@ -16,7 +16,7 @@ docker exec -it <kind-container> bash
 kubectl get nodes
 
 ## Create Pod
-
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -27,11 +27,12 @@ spec:
     image: nginx:latest
     ports:
     - containerPort: 80
-
+```
+  
 docker ps -A -o wide
 
 ## Create ReplicaSet
-
+```yaml
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
@@ -51,11 +52,13 @@ spec:
         image: nginx:latest
         ports:
         - containerPort: 80
-
+```
+  
 kubectl edit replicaset 
 
 ## Create Deployment
-
+  
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -75,10 +78,11 @@ spec:
         image: nginx:1.19.10
         ports:
         - containerPort: 80
-
+```
 
 ## DeamonSet
 
+```yaml
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -97,9 +101,11 @@ spec:
         image: nginx:latest
         ports:
         - containerPort: 80
-
-## Create Service 
-
+```
+  
+## Create Service
+  
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -119,9 +125,10 @@ spec:
         image: nginx:1.19.10
         ports:
         - containerPort: 80
-
+```
 ## Configmap
-
+  
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -161,7 +168,8 @@ spec:
       - name: nginx-config-volume
         configMap:
           name: nginx-configmap
-
+```
+  
 ## Assigment
 
 Certainly! Here's an assignment you can provide after completing the hands-on labs on Kubernetes:
