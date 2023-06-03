@@ -170,8 +170,6 @@ spec:
   
 ## Assigment
 
-Certainly! Here's an assignment you can provide after completing the hands-on labs on Kubernetes:
-
 Assignment: Deploy a Multi-tier Application on Kubernetes
 
 Objective:
