@@ -29,7 +29,7 @@ spec:
     - containerPort: 80
 ```
   
-docker ps -A -o wide
+kubectl get pod -A -o wide
 
 ## Create ReplicaSet
 ```yaml
