@@ -133,6 +133,22 @@ spec:
         - containerPort: 80
 EOF
 ```
+
+```yaml
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-service
+spec:
+  selector:
+    app: my-app
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+EOF
+```
 ## Configmap
   
 ```yaml
