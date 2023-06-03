@@ -15,6 +15,7 @@ kubectl get nodes
 
 ## Create Pod
 ```yaml
+cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: Pod
 metadata:
@@ -25,12 +26,14 @@ spec:
     image: nginx:latest
     ports:
     - containerPort: 80
+EOF
 ```
   
 kubectl get pod -A -o wide
 
 ## Create ReplicaSet
 ```yaml
+cat <<EOF | kubectl apply -f -
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
@@ -50,6 +53,7 @@ spec:
         image: nginx:latest
         ports:
         - containerPort: 80
+EOF
 ```
   
 kubectl edit replicaset 
@@ -57,6 +61,7 @@ kubectl edit replicaset
 ## Create Deployment
   
 ```yaml
+cat <<EOF | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -81,6 +86,7 @@ spec:
 ## DeamonSet
 
 ```yaml
+cat <<EOF | kubectl apply -f -
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -99,11 +105,13 @@ spec:
         image: nginx:latest
         ports:
         - containerPort: 80
+EOF
 ```
   
 ## Create Service
   
 ```yaml
+cat <<EOF | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -123,10 +131,12 @@ spec:
         image: nginx:1.19.10
         ports:
         - containerPort: 80
+EOF
 ```
 ## Configmap
   
 ```yaml
+cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -138,7 +148,11 @@ data:
     <h1>Welcome to my custom Nginx page!</h1>
     </body>
     </html>
----
+EOF
+```
+
+```
+cat <<EOF | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -166,6 +180,7 @@ spec:
       - name: nginx-config-volume
         configMap:
           name: nginx-configmap
+EOF
 ```
   
 ## Assigment
