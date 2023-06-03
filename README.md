@@ -9,7 +9,7 @@ kind create cluster --image kindest/node:v1.22.12
 
 docker ps
 
-docker exec -it <kind-container> bash
+docker exec -it kind-container-name bash
 
 kubectl get nodes
 
